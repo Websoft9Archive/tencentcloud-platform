@@ -6,16 +6,13 @@
 
 ## 域名解析
 
-AWS给每台EC2实例都配置了一个公有DNS
-
-当EC2配置的是动态IP时，每次重启实例，IP地址都可能会发生变化，导致需要重新解析域名，给运维带来不必要的麻烦。AWS的DNS功能，就是帮我们避免这个问题的。
-
 1. 购买域名(也称之为注册域名)，并完成实名制认证
-2. 登录阿里云控制台，打开域名列表，在所需操作的域名上点击“解析”
-   ![A记录解析](http://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-dns-websoft9.png)
-3. 增加一个A记录：将域名（或子域名）指向IP的操作(下图示例)
-   ![A记录解析](http://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-dnsrev-websoft9.png)
-2. 保存并等待生效
+   ![域名购买](http://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-buydomain-websoft9.png)
+2. 登录腾讯[域名控制台](https://console.cloud.tencent.com/cns)
+3. 在 “域名解析列表” 中，选择需要进行 A 记录转发的域名，进入域名详情页面。
+4. 增加一个A记录：将域名（或子域名）指向IP的操作(下图示例)
+   ![A记录解析](http://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-dnsreva-websoft9.png)
+5. 保存并等待生效
 
 ## 域名绑定
 
@@ -44,13 +41,11 @@ Require all granted
 
 ## 域名备案
 
-阿里云的备案政策简述：
+腾讯云的备案政策简述：
 
-- 购买服务器2个月或以上，就可以由阿里云免费提供备案服务。  
-- 备案过程请通过[阿里云备案系统](https://beian.aliyun.com/order/index.htm)全程操作
+- 购买服务器满足腾讯云的免费备案要求，就可以由腾讯云供备案服务。  
+- 备案过程请通过[腾讯云备案系统](https://cloud.tencent.com/product/ba)全程操作
 - 备案是纯粹的商务流程活动，没有任何技术门槛，建议用户自行完成
-   ![阿里云备案](https://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-beian-websoft9.png)
 - 服务器地区在中国大陆的对应的域名需要备案
-
-> 阿里云 7*24小时备案专线：95187转3 确保您的备案咨询能够得到及时回复
+- 腾讯云提供 7*24域名备案[咨询服务](https://console.cloud.tencent.com/smarty?from=beian-offical)
 

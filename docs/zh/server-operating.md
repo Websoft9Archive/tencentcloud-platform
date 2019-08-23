@@ -47,3 +47,8 @@ CVM的配置可以[调整](https://cloud.tencent.com/document/product/213/2178)�
    ![重装系统](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-iniecs-websoft9.png)
 4. 在弹出的 “重装系统” 窗口中，选择使用当前机器使用镜像或其他镜像，调整磁盘大小，输入密码，单击【开始重装】。
    ![重装系统详情](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-iniecsdetail-websoft9.png)
+
+## 查看日志
+1. 登录到[云服务器控制台](https://console.cloud.tencent.com/cvm/index)
+2. 云服务器的操作日志可以在 控制台 右上角查看。
+   ![查看日志](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-viewlogscvm-websoft9.png)

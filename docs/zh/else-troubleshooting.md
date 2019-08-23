@@ -2,7 +2,7 @@
 
 下面列出最常见的故障或设置错误导致的问题。
 
-如果您已经明确问题原因是云服务器产生的，那么请直接阅读[腾讯云实例故障排查](https://support.huaweicloud.com/trouble-ecs/zh-cn_topic_0171671694.html)。
+如果您已经明确问题原因是云服务器产生的，那么请直接阅读[腾讯云实例故障排查](https://cloud.tencent.com/document/product/213/15385)。
 
 #### SFTP无法登录？
 

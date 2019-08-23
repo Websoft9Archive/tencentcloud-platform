@@ -30,8 +30,6 @@
 
 腾讯云支持在线扩容***数据盘**，即无需重启CVM实例便可以完成扩容。
 
-
-
 1. 登录 [云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs)。
 2. 选择目标云硬盘的【更多】>【扩容】。
    ![扩容](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-changedisks-websoft9.png)

@@ -1,93 +1,89 @@
-# Linux Connect
+# 连接Linux
 
-There are two ways to connect to a Linux server: command line and SFTP:
+连接Linux服务器一般有命令行和SFTP两种方式：
 
-## Connect by Command
+## 命令行连接
 
-The Command is the basic operation of the Linux system. AWS provides two web-based SSH tools that can be logged in without an account.
+命令行（Command）是Linux系统基本的操作，腾讯云支持三种命令行连接方式：
 
-- Method 1: Log in to the AWS Portal, open the VM -> Operations, click "Run command"
+| 方式                                                   | 操作说明                                                     |
+| ------------------------------------------------------ | ------------------------------------------------------------ |
+| 一个独立的SSH客户端                                    | 需要下载 [putty](https://putty.org/) 等客户端到本地电脑来连接服务器 |
+| WebShell（推荐） | 腾讯云提供的网页版的在线登录方式 |
 
-![Run command on AWS](https://libs.websoft9.com/Websoft9/DocsPicture/en/AWS/AWS-runcmd-websoft9.png)
 
-- Method 1: Log in to the AWS Portal, open the VM -> Support+troubleshooting, click "Serial console"
+我们以 **“WebShell”** 为例描述如何连接Linux
 
-![Run command on AWS](https://libs.websoft9.com/Websoft9/DocsPicture/en/AWS/AWS-runcmd2-websoft9.png)
+1. 登录[腾讯云控制台](https://console.cloud.tencent.com/cvm/index)
+2. 在实例的管理页面，选择需要登录的 Linux 云服务器，单击“登录”。如下图所示：
+   ![命令行连接](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-remoteconnectweb-websoft9.png)
+3. 在弹出的【登录Linux实例】窗口，选择【标准登录方式】，单击【立即登录】。如下图所示：
+   ![立即登录](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-connectlinuxlj-websoft9.png)
+4. 输入账号和密码
+   ![立即登录](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-webshellinput-websoft9.png)
+5. 如果登录成功，WebShell 界面会出现 Socket connection established 提示。如下图所示：
+   ![立即登录](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-webshellss-websoft9.png)
 
-> If you are not used to using the online SSH command line tool provided by the cloud platform, download the SSH client tool (e.g [putty](https://putty.org/)), configure the login information and then connect to Linux.
+通过命令行连接服务器之后，获取数据库密码是最为常见的操作：
 
-After connecting to the server through the command line, the following two most common examples of operations are required:
+### 示例：获取数据库密码
 
-### Sample1: Getting database password
-
-For security reasons, each time a user deploys, a unique random database password is generated and stored in the service. Just one of the following commands to view
+为了安全考虑，用户每一次部署，都会生成唯一的随机数据库密码，存放在服务中。只需如下的一条命令，即可查看
 
 ```shell
 cat /credentials/password.txt
 
-//result
+//运行结果
 MySQL username:root
 MySQL Password:@qDg1Vq1!V
 ```
 
-### Sample2: Enable the root username
+## SFTP连接
 
-For security and regulatory requirements, AWS does not open the Linux root account by default, and only provides users with a common account. If you wish to use the root account, enable it by following the steps below:
+SFTP是使用SSH协议的FTP模式，也称之为安全增强型的FTP。SFTP工具是Linux用户最喜欢的一种操作方式，下面以WinSCP这款SFTP工具为例，详细说明SFTP的使用。
 
-```shell
-sudo su
-sudo sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
-sudo systemctl restart sshd
-sudo passwd root
-```
+### 配置WinSCP
 
-## Connect by SFTP
+1. 下载[WinSCP](https://winscp.net/) ，安装后，启动并新建一个连接
+2. 根据云服务器的 **密码验证和秘钥对** 两种验证方式分别说明：
+   - 密码验证方式设置（最常见的方式）
+     ![密码验证方式](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/winscp-newsite.png)
+   - 秘钥对验证方式设置
+     ![秘钥对验证方式](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/winscp-secrets-websoft9.png)
+3. 验证方式设置好之后，点击"登录"。登录中过程中，系统提示您是否保存登录信息，选择"是"
+4. 成功连接后的界面
+   ![WinSCP管理界面](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/websoft9-winscp-success.png)
 
-SFTP is an FTP mode that uses the SSH protocol, also known as security-enhanced FTP. The SFTP tool is a favorite operation mode for Linux users. The following is an example of WinSCP SFTP tool, which details the use of SFTP.
+### 管理文件
 
-### Configure WinSCP
+WinSCP 通过拖拽，就可以方便上传下载文件，可以对文件（夹）可以对进行多种设置与操作
 
-1. Download [WinSCP](https://winscp.net/) and install it, then start it to create a new connection
-2. The following is based on the cloud server's **password verification** and **key-key pair** verification:
-   - Password authentication(the most common way)
-     ![Password authentication](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/winscp-newsite.png)
-   - Key-key pair authentication
-     ![Key-key pair authentication](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/winscp-secrets-websoft9.png)
-3. You may want to save your session details to a site so you do not need to type them in every time you want to connect. Press Save button and type site name.
-   ![Save session](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/winscp-sessionsave-websoft9.png)
-4. Successfully connected interface
-   ![WinSCP GUI](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/websoft9-winscp-success.png)
-
-### Manage Files
-
-WinSCP can easily upload and download files by dragging and dropping, and can perform various settings and operations on files (folders).
-
-1. In general, the files on the website are placed in the */data/wwwroot* directory.
+1. 一般来说网站的文件都放在 */data/wwwroot* 目录下夹
    ![upload files](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/winscp-dragfile-websoft9.png)
 
-2. You can perform multiple operations on the VM by right-clicking on a file or folder on the server.
-   ![Setting file](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/websoft9-winscp-youjian.png)
+2. 右键单击服务器上一个文件或文件夹，可以对云服务器进行多种操作
+   ![管理文件](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/websoft9-winscp-youjian.png)
 
-3. The relevant interface for modifying file permissions is as follows:
+3. 以修改文件权限为例的相关界面如下
 
-   ![Gourp and Owner settings](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/websoft9-winscp-quanxian.png)
+   ![管理文件](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/websoft9-winscp-quanxian.png)
 
-### Run Command
+### 运行命令
 
-WinSCP is a built-in command run function, although the command function is limited to running non-interactive naming (that is, no feedback and process input are required during command execution), but it is simple and practical for beginners.
+WinSCP是自带命令运行功能的，虽然命令功能仅限于运行非交互式命名（即命令执行过程中无需反馈和过程中的输入），但对于初学者确简单实用。
 
-1. WinSCP logs in to the server, click on the command window icon from the menu (shortcut Ctrl+T is also available)
-   ![Command of Winscp](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/winscp-ucmd-websoft9.png)
-2. In the pop-up command run window to execute the command (one command at a time), to query the memory usage as an example, run the command `free -m`
-   ![Command of Winscp](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/wincp-showmemory-websoft9.png)
+1. WinSCP登录到服务器，点击菜单来的命令窗口图标（快捷键Ctrl+T也可以）
+   ![命令行工具](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/winscp-ucmd-websoft9.png)
+2. 在弹出的命令运行窗口执行命令（每次一条命令），以查询内存使用为例，运行命令 `free -m`
+   ![命令行工具](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/wincp-showmemory-websoft9.png)
 
-### Putty Integration
+### 集成Putty
 
-Under certain specificities, you may need to use [Putty](https://putty.org/) to run commands. Since Putty is a command operation interface, you need to enter the root password every time you use it. If the password is complicated, it will make people feel more troublesome. In fact, WinSCP can be integrated with Putty. After integration, you can open Putty through WinSCP and log in to the server automatically.
+在某些特定的常见下，可能需要使用Putty来运行命令。由于Putty是一个命令操作界面，每次使用的时候都需要输入root密码，如果密码比较复杂，会让人感觉比较麻烦。其实WinSCP是可以集成Putty的，集成后，通过WinSCP就可以打开Putty，自动登录到服务器。
 
-1. Open the Preferences of WinSCP->Integration->Application, and input the local address of your Putty, click OK
-   ![Putty Address](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/websoft9-winscp-putty.png)
-2. After the integration is successful, you only need to open the Putty through Winscp's window shortcut.
-   ![Open Putty on WinSCP](http://libs.websoft9.com/Websoft9/DocsPicture/en/winscp/websoft9-winscp-puttyopen.png)
+1. 打开Winscp-选项-集成-应用程序。Putty/terminal客户端路径这里为你本地putty.exe程序的路径
+   ![命令行工具](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/websoft9-winscp-putty.png)
+2. 集成成功后，只需要通过Winscp的窗口快捷方式即可打开Putty
+   ![命令行工具](http://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/websoft9-winscp-puttyopen.png)
 
-> Opening a Putty operation via Winscp is no different than opening a putty directly.
+> 通过Winscp打开Putty操作与直接打开putty没有区别

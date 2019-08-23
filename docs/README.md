@@ -1,33 +1,36 @@
 ---
 home: false
 heroImage: /hero.png
-actionText: Quik Start →
-actionLink: /
+actionText: 快速上手 →
+actionLink: /zh/
 ---
 
-# Overview
+# 概述
 
-Using the deployment solution of Websoft9, you need to master the basic operations of AWS to better complete the installation and deployment and operation and maintenance. This document is a simplified version of AWS official documentation, combined with the actual operation of the deployment, to help you quickly master The most basic skills.
+使用 [Websoft9](https://www.websoft9.com) 提供的部署包，需要掌握**腾讯云**的基本操作，以便更好的完成安装部署以及运维工作，本文档是对[腾讯云官方文档](https://cloud.tencent.com/document/product/213)的简化，并结合部署的实际操作，致力于帮助您快速的掌握最基本的技能。
 
-Five parts for this documentation:
+本文档分为五个部分：
 
-* Getting Started
-* Visual Machine
-* Network and Security
-* Business
-* Other
+* 开始
+* 云服务器
+* 网络与安全
+* 商务
+* 其他
 
-## Special term
+## 专有词汇
 
-The AWS platform has some special terms, listed below:
+腾讯云平台有一些独有的词汇，下面列出：
 
-* VM（Visual Machine）is same with Cloud Server or Instance
-* AWS Portal is the same with Cloud Console
-* DNS is the Domain Name System
+* CVM，即云服务器
+* 实例，即云服务器
+* 控制台，即管理腾讯云资源的后台系统
+* COS，即对象存储
+* 云硬盘，即磁盘
+* 服务器按量计费，即按小时后付费
 
-More terms, refer to the charpter [《AWS Terms》](/else-glossary.md) of this documentation
+更多的名词解释，请参考本文档的[《腾讯云词汇表》](/zh/else-glossary.md)章节
 
-## Improve
+## 改进
 
-This document will continue to improve and broadly absorb the needs of users.
-If you have good idea, please don't hesitate to give us feedback by "**Edit this page on GitHub**", and welcome you to fork this documentation on [Github](https://github.com/websoft9/AWS-platform)。
+本文档会持续改进，广泛吸收用户的需求。  
+如果您有好的想法，请点击页面下方”在Github上编辑“ 给我们反馈，欢迎Fork我们在[Github上的项目](https://github.com/websoft9/tencentcloud-platform)。

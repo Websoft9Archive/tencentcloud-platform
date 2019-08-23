@@ -6,10 +6,10 @@
 
 下面介绍基于镜像创建云服务器的操作步骤：
 
-## 创建弹性云服务器
+## 创建服务器
 
-1. 登录腾讯云控制台->云服务器，点击“新建”，
-   ![进入ecs控制台购买服务器](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-buyecs-websoft9.png)
+1. 登录腾讯[云服务器控制台](https://console.cloud.tencent.com/cvm)，点击“新建”，
+   ![进入CVM控制台购买服务器](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-buyecs-websoft9.png)
 
 2. 首先，选择地域与机型
    ![选择CVM规格](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-guige-websoft9.png)
@@ -35,13 +35,7 @@
 
 在创建弹性云服务器时，如果采用秘钥对作为登录凭证，需要提前创建秘钥对
 
-登录 云服务器控制台 。
-单击左侧导航窗格中的【SSH 密钥】。
-单击【创建密钥】
-
-
-
-1. 登录云服务器控制台，
+1. 登录腾讯[云服务器控制台](https://console.cloud.tencent.com/cvm)
 2. 单击左侧导航窗格中的【SSH 密钥】，然后点击【创建秘钥】按钮
    ![创建秘钥对](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-createkeys-websoft9.png)
 3. 选择方式

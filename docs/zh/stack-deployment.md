@@ -34,7 +34,7 @@ Websoft9已经在 腾讯云云市场 上提供了多款镜像（**镜像是云�
    ![进入ecs控制台购买服务器](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-buyecs-websoft9.png)
 2. 购买的第二步，选择镜像选择“镜像市场”
    ![进入ecs控制台购买服务器](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-selectmkimage-websoft9.png)
-3. 然后搜索关键件词“**网久**”，列出相关镜像
+3. 然后搜索关键件词“**websoft9**”，列出相关镜像
    ![选择Websoft9镜像](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-selectimage-websoft9.png)
 
 4. 选择一个你所需的镜像，开始创建CVM实例

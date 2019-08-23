@@ -1,45 +1,54 @@
 # 操作
 
-下面是一些常见的ECS操作
+下面是一些常见的CVM操作
 
 ## 启动、停止和终止
 
-在ECS控制台可以对实例状态进行修改，包括：
+在CVM控制台可以对实例状态进行修改，包括：
 
-- 启动
-- 停止
+- 开机
+- 关机
 - 重启
-- 释放
-- 升降配
+- 销毁/退还
+- 按量转包年包月
 
-释放=删除ECS，使用于按量购买的服务器
+销毁适用于按量购买的服务器  
 
-## 重置密码
 
-忘记密码，可以通过阿里云控制台重置：
+## 重置实例密码
 
-1. 登录到阿里云控制台，找到所需操作的ECS
-2. 点击下面的“重置实例密码”，输入新密码
-   ![调整配置](https://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-resetpw-websoft9.png)
-3. 重启ECS实例，方可生效
+如果您遗忘了密码，您可以在控制台上重新设置实例的登录密码。
 
-## 升降配
+> 只有处于关机状态的实例才允许执行重置密码操作。为了避免数据丢失，请提前规划好操作时间，建议在业务低谷时操作，将影响降到最低。
 
-ECS的配置可以调整，具体操作如下：
+1. 登录到[云服务器控制台](https://console.cloud.tencent.com/cvm/index)
+2. 在实例的管理页面，选择需要重置密码的云服务器行，单击【更多】>【密码/密钥】>【重置密码】。如下图所示：
+   ![调整配置](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-resetpw-websoft9.png)
+3. 重新开机，方可生效
 
-1. 登录到阿里云控制台，找到所需操作的ECS
-2. 点击右侧的“升降配”，选择一种变更方案
-   ![调整配置](https://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-changeecsconfigure-websoft9.png)
-3. 依据相关的操作向导完成变更
+## 调整配置
 
-## 重新初始化磁盘
+CVM的配置可以[调整](https://cloud.tencent.com/document/product/213/2178)，具体操作如下：
 
-如果你想将服务器恢复到刚安装之时的状态，就需要用到**重新初始化镜像**操作。
+1. 登录到[云服务器控制台](https://console.cloud.tencent.com/cvm/index)
+2. 在需要调整的实例右侧操作栏，单击【更多】>【资源调整】>【调整配置】。如下图所示：
+   ![调整配置](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-changeecsconfigure-websoft9.png)
+3. 依据操作向导完成调整
 
-1. 登录到阿里云控制台，找到所需操作的ECS
-2. 停止ECS示例
-2. 依次打开：更多->磁盘和镜像->重新初始化镜像
-   ![获取系统日志](https://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-iniecs-websoft9.png)
-3. 根据系统提示完成后续步骤
+## 重装系统
 
-> 建议仔细理解**更换系统盘**和**重新初始化镜像**的差异
+如果你想将服务器恢复至刚启动的初始状态，就需要用到[**重装系统**](https://cloud.tencent.com/document/product/213/4933)操作。  
+
+重装系统之前务必进行完成[服务器备份](/zh/server-backup.md)，然后关闭服务器后方可开始重装：
+
+1. 登录到[云服务器控制台](https://console.cloud.tencent.com/cvm/index)
+2. 在需要重装系统的实例行中，单击【更多】>【重装系统】。如下图所示：
+3. 依次打开：更多->重装系统  
+   ![重装系统](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-iniecs-websoft9.png)
+4. 在弹出的 “重装系统” 窗口中，选择使用当前机器使用镜像或其他镜像，调整磁盘大小，输入密码，单击【开始重装】。
+   ![重装系统详情](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-iniecsdetail-websoft9.png)
+
+## 查看日志
+1. 登录到[云服务器控制台](https://console.cloud.tencent.com/cvm/index)
+2. 云服务器的操作日志可以在 控制台 右上角查看。
+   ![查看日志](https://libs.websoft9.com/Websoft9/DocsPicture/zh/qcloud/qcloud-viewlogscvm-websoft9.png)
